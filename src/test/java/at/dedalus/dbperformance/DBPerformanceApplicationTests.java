@@ -82,7 +82,7 @@ class DBPerformanceApplicationTests {
 	 * Observe how the behavior changes when using different collection types
 	 */
 	@Test
-	void relationCollection2() {
+	void relationCollection() {
 		Study study = createStudyAndSeries();
 		Person p1 = new Person("Hugo");
 		study.getPersons().add(p1);
@@ -101,6 +101,19 @@ class DBPerformanceApplicationTests {
 		study.getPersons().add(0,p4);
 		entityManager.persist(p4);
 	}
+
+
+	/**
+	 * Observe which statements are issued on inserts.
+	 * Modify the mapping to remove the unnecessary update statement
+	 */
+	@Test
+	void relationMapping() {
+		Study study = createStudyAndSeries();
+		entityManager.flush();
+	}
+
+
 
 
 

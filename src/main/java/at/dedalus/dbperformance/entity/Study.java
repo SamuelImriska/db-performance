@@ -32,7 +32,8 @@ public class Study {
     @Column(name="study_desc")
     private String studyDescription;
 
-    @OneToMany(mappedBy = "study" )
+    @OneToMany
+    @JoinColumn(name="study_fk")
     private List<Series> series = new ArrayList<>();
 
     public void addSeries(Series serie)
